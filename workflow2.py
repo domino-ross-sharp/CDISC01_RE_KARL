@@ -5,13 +5,13 @@ from flytekitplugins.domino.helpers import Input, Output, run_domino_job_task
 from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask, GitRef, EnvironmentRevisionSpecification, EnvironmentRevisionType, DatasetSnapshot
 
 
-# pyflyte run --remote workflow2.py POC_HW --sdtm_data_path /mnt/imported/data/SDTMBLIND/JUNE242024
-# pyflyte run --remote workflow2.py POC_HW --sdtm_data_path /mnt/data/SDTMBLIND
+# pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/imported/data/SDTMBLIND/JUNE242024
+# pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/data/SDTMBLIND
 
 @workflow
-def POC_HW(sdtm_data_path: str):   
+def ADAMS(sdtm_data_path: str):   
     # Create ADSL dataset
-    data_prep_results = run_domino_job_task(
+    adsl = data_prep_results = run_domino_job_task(
         flyte_task_name="Create ADSL Dataset",
         command="prod/adam_flows/ADSL.sas",
         inputs=[Input(name="sdtm_data_path", type=str, value=sdtm_data_path)],
