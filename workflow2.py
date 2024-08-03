@@ -6,7 +6,7 @@ from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask, GitRef, 
 
 
 # pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/imported/data/SDTMBLIND/JUNE242024
-# pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/data/SDTMBLIND
+# pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/data/snapshots/SDTMBLIND/1
 
 @workflow
 def ADAMS(sdtm_data_path: str):   

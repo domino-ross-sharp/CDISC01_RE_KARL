@@ -40,9 +40,9 @@ data _null_;
    call symputx('sdtm_path', sdtm_path, 'G');
 run;
 
-%put &=sdtm_path.;
+%put &=sdtm_data_path.;
 
-libname sdtm "/mnt/data/snapshots/SDTMBLIND/1";
+libname sdtm "&sdtm_data_path.";
 
 data outputs.adsl;
 	set sdtm.dm;
