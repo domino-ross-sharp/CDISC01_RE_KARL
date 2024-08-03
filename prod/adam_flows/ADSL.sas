@@ -35,11 +35,14 @@ libname inputs "/workflow/inputs";
 libname outputs "/workflow/outputs";
 
 data _null_;
-   infile '/workflow/inputs/sdtm_dataset_snapshot' truncover;
-   input data_path $CHAR100.;
-   call symputx('data_path', data_path, 'G');
+   infile '/workflow/inputs/sdtm_data_path' truncover;
+   input sdtm_path $CHAR100.;
+   call symputx('sdtm_path', sdtm_path, 'G');
 run;
-libname sdtm "&sdtm_path.";
+
+%put &=sdtm_path.;
+
+libname sdtm "/mnt/data/snapshots/SDTMBLIND/1";
 
 data outputs.adsl;
 	set sdtm.dm;

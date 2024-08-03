@@ -11,7 +11,7 @@ from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask, GitRef, 
 @workflow
 def ADAMS(sdtm_data_path: str):   
     # Create ADSL dataset
-    adsl = data_prep_results = run_domino_job_task(
+    adsl = run_domino_job_task(
         flyte_task_name="Create ADSL Dataset",
         command="prod/adam_flows/ADSL.sas",
         inputs=[Input(name="sdtm_data_path", type=str, value=sdtm_data_path)],
