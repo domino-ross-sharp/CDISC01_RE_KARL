@@ -9,7 +9,7 @@ from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask, GitRef, 
 # pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/data/snapshots/SDTMBLIND/1
 
 @workflow
-def ADAMS(sdtm_data_path: str):   
+def ADAMS(sdtm_data_path: str) -> FlyteFile[TypeVar("sas7bdat")]:  
     # Create ADSL dataset
     adsl = run_domino_job_task(
         flyte_task_name="Create ADSL Dataset",
