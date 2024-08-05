@@ -36,13 +36,13 @@ libname outputs "/workflow/outputs";
 
 data _null_;
    infile '/workflow/inputs/sdtm_data_path' truncover;
-   input sdtm_path $CHAR100.;
-   call symputx('sdtm_path', sdtm_path, 'G');
+   input data_path $CHAR100.;
+   call symputx('data_path', data_path, 'G');
 run;
 
-%put &=sdtm_data_path.;
+%put &=data_path.;
 
-libname sdtm "&sdtm_data_path.";
+libname sdtm "&data_path.";
 
 data outputs.adsl;
 	set sdtm.dm;
