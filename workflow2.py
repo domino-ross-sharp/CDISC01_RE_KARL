@@ -20,6 +20,6 @@ def ADAMS(sdtm_data_path: str):
         environment_name="SAS Analytics Pro",
         dataset_snapshots=[DatasetSnapshot(Id="66abdd45e651b51a171f2a4a", Version=1 )]
     )
-
+    return 
 
     
