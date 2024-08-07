@@ -6,6 +6,7 @@ from flytekitplugins.domino.task import DominoJobConfig, DominoJobTask, GitRef, 
 
 
 # pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/data/snapshots/SDTMBLIND/1
+# pyflyte run --remote workflow2.py ADAMS --sdtm_data_path /mnt/imported/data/SDTMBLIND/1
 
 @workflow
 def ADAMS(sdtm_data_path: str) -> FlyteFile[TypeVar("sas7bdat")]:  
@@ -17,7 +18,7 @@ def ADAMS(sdtm_data_path: str) -> FlyteFile[TypeVar("sas7bdat")]:
         output_specs=[Output(name="adsl", type=FlyteFile[TypeVar("sas7bdat")])],
         use_project_defaults_for_omitted=True,
         environment_name="SAS Analytics Pro",
-        dataset_snapshots=[DatasetSnapshot(Id="66b3f3a7e651b51a171f2b9c", Version=1 )]
+        #dataset_snapshots=[DatasetSnapshot(Id="66b3f3a7e651b51a171f2b9c", Version=1 )]
     )
     return adsl["adsl"]
 
